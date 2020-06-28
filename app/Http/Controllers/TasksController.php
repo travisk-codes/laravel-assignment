@@ -38,4 +38,20 @@ class TasksController extends Controller
 
         return redirect('/tasks');
     }
+
+    public function edit($id)
+    {
+        $task = Task::find($id);
+
+        return view('tasks.edit', compact('task'));
+    }
+
+    public function update($id)
+    {
+        $task = Task::find($id);
+        $task->text = request('text');
+        $task->save();
+
+        return redirect('/tasks/' . $task->id);
+    }
 }
