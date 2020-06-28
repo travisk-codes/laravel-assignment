@@ -32,6 +32,10 @@ class TasksController extends Controller
 
     public function store()
     {
+        request()->validate([
+            'text' => 'required'
+        ]);
+
         $task = new Task;
         $task->text = request('text');
         $task->save();
@@ -48,6 +52,10 @@ class TasksController extends Controller
 
     public function update($id)
     {
+        request()->validate([
+            'text' => 'required'
+        ]);
+
         $task = Task::find($id);
         $task->text = request('text');
         $task->save();

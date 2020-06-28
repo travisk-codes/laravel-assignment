@@ -5,7 +5,10 @@
 	@csrf
 	<label for="text">
 		Text
-		<input name='text' type="text">
+		<input name='text' type="text" value="{{ old('text') }}">
+		@error('text')
+			<p>{{ $errors->first('text') }}</p>
+		@enderror
 	</label>
 
 	<label for='completed'>

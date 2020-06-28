@@ -7,6 +7,9 @@
 	<label for="text">
 		Text
 		<input name='text' type="text" value='{{ $task->text }}'>
+		@error('text')
+			<p>{{ $errors->first('text') }}</p>
+		@enderror
 	</label>
 
 	<label for='completed'>
