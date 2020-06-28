@@ -16,10 +16,8 @@ class TasksController extends Controller
         ]);
     }
 
-    public function show($id)
+    public function show(Task $task)
     {
-        $task = Task::find($id);
-
         return view('tasks.show', [
             'task' => $task
         ]);
@@ -43,20 +41,18 @@ class TasksController extends Controller
         return redirect('/tasks');
     }
 
-    public function edit($id)
+    public function edit(Task $task)
     {
-        $task = Task::find($id);
-
         return view('tasks.edit', compact('task'));
     }
 
-    public function update($id)
+    public function update(Task $task)
     {
         request()->validate([
             'text' => 'required'
         ]);
 
-        $task = Task::find($id);
+
         $task->text = request('text');
         $task->save();
 
