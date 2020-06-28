@@ -17,5 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// order matters
 Route::get('/tasks', 'TasksController@index');
+Route::post('/tasks', 'TasksController@store');
+Route::get('/tasks/create', 'TasksController@create');
 Route::get('/tasks/{task}', 'TasksController@show');
