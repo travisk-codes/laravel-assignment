@@ -24,3 +24,4 @@ Route::get('/tasks/create', 'TasksController@create');
 Route::get('/tasks/{task}', 'TasksController@show');
 Route::put('/tasks/{task}', 'TasksController@update');
 Route::get('/tasks/{task}/edit', 'TasksController@edit');
+Route::delete('/tasks/{task}', 'TasksController@destroy');
